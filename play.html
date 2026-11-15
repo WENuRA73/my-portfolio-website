@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta name="description" content="Play browser games made by Sitelume Studio: Deadzone: Wave Survival and Space Shooter.">
+  <title>Play Games — Sitelume Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/logo-mark.webp" type="image/webp">
+  <link rel="stylesheet" href="play.css">
+  <script src="play.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#gameStage">Skip to games</a>
+  <header class="play-header">
+    <a class="play-brand" href="index.html#home" aria-label="Sitelume Studio home"><img src="images/logo-mark.webp" alt="" width="38" height="43"><span>sitelume<small>STUDIO</small></span></a>
+    <a class="back-link" href="index.html#project-games">← Back to the portfolio</a>
+  </header>
+  <main>
+    <div class="play-intro">
+      <div><span class="eyebrow">SITELUME GAME LAB</span><h1>Pick a game.<br><em>Have a go.</em></h1></div>
+      <p>Two browser games built by Sitelume Studio. Choose a title below to load it here. Your best scores stay in your browser.</p>
+    </div>
+    <div class="game-picker" aria-label="Choose a game">
+      <button class="game-choice" type="button" data-game="deadzone" aria-pressed="false"><img src="images/portfolio/deadzone.png" alt=""><span><small>ZOMBIE SURVIVAL</small><strong>Deadzone: Wave Survival</strong><em>Top-down combat · Desktop and touch</em></span><b aria-hidden="true">↗</b></button>
+      <button class="game-choice" type="button" data-game="space-shooter" aria-pressed="false"><img src="images/portfolio/space-shooter-fleet.png" alt=""><span><small>ARCADE SHOOTER</small><strong>Space Shooter</strong><em>50 waves · Bosses · Ship upgrades</em></span><b aria-hidden="true">↗</b></button>
+    </div>
+    <section class="game-stage" id="gameStage" aria-labelledby="gameTitle">
+      <div class="stage-top"><div><span class="eyebrow" id="gameType">CHOOSE A GAME</span><h2 id="gameTitle">Ready when you are.</h2><p id="gameControls">Select a game above to load the playable version.</p></div><div class="stage-actions"><button id="fullscreenGame" type="button" disabled>Full screen ⛶</button><a id="openGame" href="#" target="_blank" rel="noopener" hidden>Open game ↗</a></div></div>
+      <div class="game-screen" id="gameScreen"><div class="game-placeholder"><span aria-hidden="true">✳</span><p>Choose a game to start.</p></div></div>
+      <p class="stage-note">Games load only when selected. Sound starts from the game’s own controls. On a phone, full screen gives you more room to play.</p>
+    </section>
+  </main>
+  <footer><span>© <span id="playYear"></span> Sitelume Studio</span><a href="index.html#contact">Have a game idea? Get in touch ↗</a></footer>
+</body>
+</html>

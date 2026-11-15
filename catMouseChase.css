@@ -1,0 +1,55 @@
+/* The two transparent layers let a jumper cross a card, then disappear behind it. */
+.services-section{position:relative;isolation:isolate;overflow:hidden}
+.services-section>.container{position:relative;z-index:2}
+.cat-mouse-layer{position:absolute;inset:0;pointer-events:none;overflow:visible}
+.chase-behind{z-index:1}.chase-over{z-index:3}
+.chase-character{position:absolute;left:0;top:0;width:var(--chase-size,64px);height:var(--chase-size,64px);pointer-events:none;transform-origin:50% 85%;will-change:transform,opacity}
+.chase-character svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(2px 3px 0 rgba(38,51,58,.22))}
+.chase-cat{width:calc(var(--chase-size,64px)*1.12);height:calc(var(--chase-size,64px)*1.12)}
+.chase-character svg g{transform-box:fill-box;transform-origin:center}
+.chase-tail{transform-origin:90% 65%!important;animation:chase-tail .42s ease-in-out infinite alternate}
+.chase-mouse .chase-tail{transform-origin:85% 30%!important}
+.chase-head{transform-origin:50% 80%!important}
+.chase-front-legs,.chase-back-legs{transform-origin:50% 0!important}
+.chase-back-legs{animation-delay:-.14s!important}
+.is-run .chase-front-legs,.is-run .chase-back-legs{animation:chase-feet .28s ease-in-out infinite alternate}
+.is-run .chase-body{animation:chase-bounce .28s ease-in-out infinite alternate}
+.is-run .chase-head{animation:chase-nod .28s ease-in-out infinite alternate}
+.is-peek .chase-body,.is-peek .chase-tail,.is-peek .chase-front-legs,.is-peek .chase-back-legs{opacity:0}
+.is-peek .chase-head{animation:chase-peek .55s ease-in-out infinite alternate}
+.is-anticipate .chase-body{transform:scale(1.14,.75)}
+.is-anticipate .chase-head{transform:translateY(4px) rotate(-8deg)}
+.is-jump .chase-body{transform:scale(.88,1.18)}
+.is-jump .chase-front-legs{transform:rotate(-25deg) translateY(4px)}
+.is-jump .chase-back-legs{transform:rotate(20deg) translateY(4px)}
+.is-land .chase-body,.is-land .chase-head{animation:chase-land .26s ease-out both}
+.is-fail .chase-body{transform:scale(1.25,.7) rotate(-12deg)}
+.is-fail .chase-head{transform:scale(1.28,.72) rotate(-16deg)}
+.is-fail .chase-front-legs,.is-fail .chase-back-legs{transform:rotate(35deg)}
+.is-dizzy .chase-head{animation:chase-dizzy .38s ease-in-out infinite alternate}
+.is-reaction .chase-head{transform:rotate(-12deg)}
+.mouse-tongue{opacity:0}.is-reaction .mouse-tongue{opacity:1}
+.mouse-sweat{opacity:0}.is-run .mouse-sweat,.is-jump .mouse-sweat{opacity:1}
+.chase-speed{position:absolute;left:-26%;top:38%;width:24%;height:4px;background:var(--ink);border-radius:5px;box-shadow:-7px 10px 0 -1px var(--ink),-2px -10px 0 -1px var(--ink);opacity:0}
+.is-run .chase-speed{opacity:.8}
+.chase-dust{position:absolute;left:-9%;bottom:0;width:19%;height:15%;border:2px solid var(--ink);border-radius:50%;background:#fffdf7;opacity:0}
+.chase-dust:before,.chase-dust:after{content:"";position:absolute;border:2px solid var(--ink);border-radius:50%;background:#fffdf7}
+.chase-dust:before{width:65%;height:65%;left:-80%;top:35%}.chase-dust:after{width:45%;height:45%;left:-115%;top:65%}
+.is-run .chase-dust,.is-land .chase-dust,.is-fail .chase-dust{opacity:1;animation:chase-dust .35s ease-out infinite alternate}
+.chase-exclaim{position:absolute;left:50%;top:-48%;color:#df6a5c;font:700 34px Fredoka,sans-serif;transform:rotate(13deg) scale(.5);opacity:0;text-shadow:2px 2px 0 #fff9ed}
+.chase-cat.is-peek .chase-exclaim,.chase-cat.is-fail .chase-exclaim{opacity:1;animation:chase-pop .36s ease-out both}
+.chase-stars{position:absolute;left:-20%;top:-55%;width:145%;color:#f2ae45;font:700 28px Fredoka,sans-serif;letter-spacing:12px;opacity:0;text-shadow:2px 2px 0 var(--ink)}
+.is-fail .chase-stars,.is-dizzy .chase-stars{opacity:1;animation:chase-stars .6s ease-in-out infinite alternate}
+.services-section:not(.chase-playing) .chase-character,.services-section:not(.chase-playing) .chase-character *{animation-play-state:paused!important}
+@keyframes chase-tail{from{transform:rotate(-12deg)}to{transform:rotate(15deg)}}
+@keyframes chase-feet{from{transform:rotate(-19deg) translateY(-2px)}to{transform:rotate(22deg) translateY(2px)}}
+@keyframes chase-bounce{from{transform:translateY(-3px) scaleY(1.04)}to{transform:translateY(2px) scaleY(.96)}}
+@keyframes chase-nod{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+@keyframes chase-peek{from{transform:rotate(-8deg)}to{transform:rotate(9deg)}}
+@keyframes chase-land{0%{transform:scale(.86,1.13)}65%{transform:scale(1.18,.73)}100%{transform:scale(1,1)}}
+@keyframes chase-dizzy{from{transform:rotate(-14deg) translateY(-2px)}to{transform:rotate(13deg) translateY(2px)}}
+@keyframes chase-dust{from{transform:translateX(0) scale(.8);opacity:.9}to{transform:translateX(-10px) scale(1.2);opacity:.3}}
+@keyframes chase-pop{from{transform:rotate(13deg) scale(.5)}to{transform:rotate(-8deg) scale(1.1)}}
+@keyframes chase-stars{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+@media(max-width:580px){.chase-speed{left:-21%}.chase-exclaim{font-size:25px}.chase-stars{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.chase-character,.chase-character *{animation:none!important}.chase-character{will-change:auto}.chase-mouse{opacity:1}.chase-cat{opacity:1}}
